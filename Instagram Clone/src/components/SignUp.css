@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+.signUp {
+  width: 33ch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  border: 2px solid rgb(233, 231, 231);
+  padding: 3ch;
+  border-radius: 10px;
+  position: relative;
+  opacity: 0;
+  /* transition: opacity 1.5s ease; */
+  transform: translateY(-50px); /* Initial position above the screen */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 2ch;
+}
+.signUpText {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 3ch;
+  padding: 0;
+  margin-bottom: 0;
+}
+img {
+  height: 6ch;
+  width: auto;
+}
+p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.2ch;
+  margin: 0.5vw auto;
+  padding: 0 0.5vw;
+}
+#terms {
+  font-style: italic;
+}
+.bg-signup {
+  /* background-image: url("/assets/bg-signup-1.jpg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  padding: 3ch;
+  height: 100%;
+  width: auto;
+  position: relative;
+}
+.bg-signup::before {
+  /* Create a pseudo-element */
+  content: "";
+
+  /* Position the pseudo-element */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* Darken the background */
+  background-color: rgba(0, 0, 0, 0); /* Adjust the opacity as needed */
+}
+.signUp.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.bg-signup div:nth-child(2) {
+  margin-top: 2px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
