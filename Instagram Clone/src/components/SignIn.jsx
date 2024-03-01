@@ -13,13 +13,42 @@ import TextField from "@mui/material/TextField";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const navigate = useNavigate();
+  const notifySuccess = (msg) => toast.success(msg);
+  const notifyError = (msg) => toast.error(msg);
+  const postData = () => {
+    fetch("http://localhost:5000/sign-in", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        password: password,
+        email: email,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data.error) {
+          notifySuccess(data.message);
+          // setIsSignedIn(true);
+          setTimeout(() => {
+            navigate("/");
+          }, 1500);
+        } else {
+          notifyError(data.error);
+        }
+      });
+  };
   useEffect(() => {
     // Once the component mounts, set isVisible to true after a short delay
     const timer = setTimeout(() => {
@@ -50,12 +79,20 @@ const SignIn = () => {
               name="email"
               fullWidth
               className="input"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
               sx={{ m: 1, width: "31ch" }}
             />
             <FormControl
               variant="outlined"
               fullWidth
               className="input"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
               sx={{ m: 1, width: "31ch" }}
             >
               <InputLabel htmlFor="outlined-adornment-password">
@@ -86,7 +123,15 @@ const SignIn = () => {
               Terms & Conditions
             </Link>
           </p>
-          <Button variant="contained" fullWidth className="btn" sx={{ m: 1 }}>
+          <Button
+            variant="contained"
+            fullWidth
+            className="btn"
+            sx={{ m: 1 }}
+            onClick={() => {
+              postData();
+            }}
+          >
             Login
           </Button>
         </div>

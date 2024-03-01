@@ -13,7 +13,7 @@ import TextField from "@mui/material/TextField";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -21,13 +21,12 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [emailText, setEmailText] = useState("");
   const [usernameError, setUsernameError] = useState(false);
   const [usernameText, setUsernameText] = useState("");
+  const navigate = useNavigate();
   const handleEmailChange = (event) => {
     const newText = event.target.value;
     setEmailText(newText);
@@ -63,8 +62,10 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (!data.error) notifySuccess(data.message);
-        else {
+        if (!data.error) {
+          notifySuccess(data.message);
+          navigate("/sign-in");
+        } else {
           notifyError(data.error);
         }
       });
