@@ -6,6 +6,11 @@
   justify-content: center;
   width: 100%;
   box-shadow: 1px 5px 5px #e0dcdc;
+  position: sticky;
+  top: 0; /* Stick to the top of the container */
+  background-color: #ffffff; /* Example background color */
+  /* padding: 10px; */
+  z-index: 100; /* Ensure the sticky component is above other content */
 }
 img {
   height: 6ch;

@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+.profile-pic-1 {
+  width: 160px; /* Adjust the width and height as needed */
+  height: 160px;
+  border-radius: 50%; /* This creates the circular shape */
+  overflow: hidden; /* This ensures the image doesn't overflow the circular shape */
+  border: 2px solid #fff; /* You can change the border color and width as needed */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow effect */
+}
+
+.profile-pic-1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the image covers the circular area */
+}
+.profile-header {
+  display: flex;
+  align-items: center;
+}
+.profile-details {
+  margin-left: 20px;
+}
+.detail-1 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.detail-1 p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  font-size: 3vh;
+}
+.profile-btn {
+  margin-left: 10px;
+  /* width: 100px; */
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  background-color: rgb(228, 230, 230);
+  border: #fff 2px solid;
+  border-radius: 15px;
+  cursor: pointer;
+  padding: 10px;
+}
+.detail-2 span {
+  margin-right: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 2.5vh;
+}
+.profile-bio p:nth-child(1) {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 2vh;
+  margin-top: 10px;
+}
+.bio {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 450;
+  margin-top: 4px;
+  font-size: 1.5vh;
+}
