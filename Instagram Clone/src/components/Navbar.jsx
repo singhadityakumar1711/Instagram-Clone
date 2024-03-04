@@ -1,19 +1,30 @@
 import React from "react";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div className="navbar">
-      <img src="/assets/insta-logo.png" alt="insta-logo" />
+      <img
+        src="/assets/insta-logo.png"
+        alt="insta-logo"
+        onClick={() => navigate("/")}
+      />
       <ul className="nav-menu">
         <li>
-          <Link to="/sign-in" className="Links">Sign In</Link>
+          <Link to="/sign-in" className="Links">
+            Sign In
+          </Link>
         </li>
         <li>
-          <Link to="/sign-up" className="Links">Sign Up</Link>
+          <Link to="/sign-up" className="Links">
+            Sign Up
+          </Link>
         </li>
         <li>
-          <Link to="/profile" className="Links">Profile</Link>
+          <Link to="/profile" className="Links">
+            Profile
+          </Link>
         </li>
       </ul>
     </div>

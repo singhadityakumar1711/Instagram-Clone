@@ -12,6 +12,9 @@
   /* padding: 10px; */
   z-index: 100; /* Ensure the sticky component is above other content */
 }
+.navbar img {
+  cursor: pointer;
+}
 img {
   height: 6ch;
   width: auto;
